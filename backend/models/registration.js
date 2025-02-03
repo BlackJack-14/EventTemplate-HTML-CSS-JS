@@ -198,14 +198,6 @@ const registrationSchema = new mongoose.Schema({
         required: false,
         default: "-",
     },
-    transactionID: {
-        type: String,
-        required: true,
-    },
-    transactionSS: {
-        type: String,
-        required: true,
-    },
     createdAt: {
         type: Date,
         default: () => moment().tz("Asia/Kolkata").toDate(),
