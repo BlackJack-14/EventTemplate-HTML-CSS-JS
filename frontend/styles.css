@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+}
+header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #007bff;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('background-image.jpg') no-repeat center center/cover;
+}
+.hero-logo {
+    width: 100px;
+    height: auto;
+}
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+}
+.hero p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.hero button {
+    background: transparent;
+    border: 2px solid #007bff;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #ffffff;
+    font-style: italic;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.hero button:hover {
+    background: #007bff;
+}
+section {
+    padding: 40px;
+}
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timeline-item {
+    background-color: #333;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.faq-item {
+    background-color: #333;
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%;
+    border-radius: 5px;
+}
+.sponsor {
+    background-color: #444;
+    padding: 15px;
+    margin: 10px;
+    display: inline-block;
+    border-radius: 5px;
+}
