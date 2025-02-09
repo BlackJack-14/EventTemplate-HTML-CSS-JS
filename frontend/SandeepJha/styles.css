@@ -1,4 +1,8 @@
+@import url('aimation.css');;
+@import url('media.css');
+
 * {
+    cursor: url("./assets/coding.png"), auto;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,7 +16,6 @@ body {
     background-image: url("./assets/wallpaperflare.com_wallpaper.jpg");
     background-attachment: fixed;
     background-size: 100vw 100vh;
-    
 }
 
 main{
@@ -99,6 +102,8 @@ main p{
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 4rem;
+    animation: view;
+    animation-timeline: view();
 }
 
 .feature-card {
@@ -188,11 +193,15 @@ main p{
 .timeline-item-left {
     justify-content: flex-end;
     padding-right: calc(50% + 2rem);
+    animation: lTr;
+    animation-timeline: view();
 }
 
 .timeline-item-right {
     justify-content: flex-start;
     padding-left: calc(50% + 2rem);
+    animation: rTl;
+    animation-timeline: view();
 }
 
 .timeline-content {
@@ -226,9 +235,12 @@ main p{
     position: relative;
     padding: 4rem 2rem;
     overflow: hidden;
+    scale: 95%;
+    animation: bTs;
+    animation-timeline: view(90% auto);
 }
 
-.topographic-background {
+/* .topographic-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -237,7 +249,7 @@ main p{
     background-image: url("");
     opacity: 0.1;
     z-index: 1;
-}
+} */
 
 .sponsors-content {
     position: relative;
@@ -286,7 +298,7 @@ main p{
 }
 
 .sponsor-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .sponsor-item img {
@@ -380,16 +392,30 @@ main p{
     align-items: center;
 }
 
-.quote{
-    color: rgba(0, 140, 255, 0.944);
-    background-color: rgba(0, 140, 255, 0.122);
-    font-size:2.5rem;
+@keyframes grad {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 200%;
+    }
+}
+
+.quote {
+    background: linear-gradient(90deg, rgb(0, 33, 245), rgb(0, 166, 255), rgb(0, 33, 245));
+    color: transparent;
+    -webkit-background-clip: text; /* Ensures gradient is applied to text */
+    background-clip: text;
+    font-size: 2.5rem;
     font-weight: bolder;
     text-align: center;
     border: 3px dashed rgba(0, 140, 255, 0.944);
     width: 50%;
     margin: auto;
+    background-size: 200%;
+    animation: grad 2s linear infinite;
 }
+
 
 footer {
     margin-top: 2rem;
@@ -466,36 +492,11 @@ footer h4 {
     font-size: 0.9rem;
     opacity: 0.8;
 }
-            
-            
-@keyframes colors {
-    from {
-        background-color: rgba(113, 113, 113, 0.8);
-    }
-    /* 50%{
-        background-color: rgba(103, 182, 255, 0.8);
-    } */
-    to {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
-}
 
-@media (max-width: 768px) {
-    .sponsors-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .sponsor-large {
-        grid-column: span 2;
-    }
+.link{
+    text-decoration: none;
+    color: white;
 }
-
-@media (max-width: 480px) {
-    .sponsors-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .sponsor-large {
-        grid-column: span 1;
-    }
+.link:hover{
+    text-decoration: underline;
 }
