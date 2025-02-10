@@ -1,0 +1,19 @@
+@media (max-width: 768px) {
+    .sponsors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .sponsor-large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsors-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sponsor-large {
+        grid-column: span 1;
+    }
+}
