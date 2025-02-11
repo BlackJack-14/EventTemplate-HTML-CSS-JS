@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#team" onclick="showSection('team')">Team Details</a></li>
+                <li><a href="#payment" onclick="showSection('payment')">Payment</a></li>
+                <li><a href="#affiliation" onclick="showSection('affiliation')">Affiliation</a></li>
+                <li><a href="#consent" onclick="showSection('consent')">Consent</a></li>
+                <li><a href="#whatsapp" onclick="showSection('whatsapp')">Join WhatsApp</a></li>
+            </ul>
+        </nav>
+    </header>
+    <img id="logoCSA" src="https://upescsa.in/logo/upescsa.png">
+    <img id="logoUPES" src="https://upescsa.in/logo/upes.png">
+    <main>
+        <section id="team">
+            <div class="header">
+                <h2>Event Registration Form:</h2>
+            </div>
+            <div class="form">
+                <h3>Team Details</h3>
+                <form id="team-form" onsubmit="event.preventDefault(); showSection('payment');">
+                    <label for="team-name">Team Name:</label>
+                    <input type="text" id="team-name" required>
+
+                    <label for="num-members">Number of Team Members:</label>
+                    <select id="num-members" onchange="updateMemberFields()">
+                    </select>
+                    <div id="member-fields">
+                        <label for="member1">Member 1 Name:</label>
+                        <input type="text" id="member1" required>
+                        <label for="member1-year">Member 1 Year of Study:</label>
+                        <input type="text" id="member1-year" required>
+                    </div>
+
+                    <label for="contact">Contact Number:</label>
+                    <input type="tel" id="contact" required>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" required>
+
+                    <label for="team-category">Team Category:</label>
+                    <select id="team-category">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+
+                    <button type="submit">Next</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="payment" style="display: none;">
+            <div class="header">
+                <h2>Event Registration Form:</h2>
+            </div>
+            <div class="form">
+                <h2>Payment</h2>
+                <p>Scan the QR code to make payment.</p>
+                <img src="QRCode.png" alt="UPI QR Code">
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" onchange="toggleScreenshot()">
+                    <option value="upi">UPI</option>
+                    <option value="cash">Cash</option>
+                </select>
+                <label for="transaction-id" id="transaction-id-label">Transaction ID:</label>
+                <input type="text" id="transaction-id">
+                <div id="screenshot-upload">
+                    <label for="screenshot">Upload Payment Screenshot:</label>
+                    <input type="file" id="screenshot" accept="image/*">
+                </div>
+                <button onclick="showSection('affiliation')">Next</button>
+            </div>
+        </section>
+
+        <section id="affiliation" style="display: none;">
+            <div class="header">
+                <h2>Event Registration Form:</h2>
+            </div>
+            <div class="form">
+                <h2>Affiliation</h2>
+                <form>
+                    <label for="team-lead-course">Team Lead Course:</label>
+                    <input type="text" id="team-lead-course" required>
+
+                    <label for="same-college">Are you from the same college?</label>
+                    <select id="same-college" onchange="toggleAffiliationFields()">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <div id="club-info" style="display: none;">
+                        <label for="same-club">Are you from our club?</label>
+                        <select id="same-club" onchange="toggleIDFields()">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+
+                        <div id="id-fields" style="display: none;">
+                            <label for="college-id">College ID:</label>
+                            <input type="text" id="college-id">
+                            <div id="club-id-field" style="display:none;">
+                                <label for="club-id">Club ID:</label>
+                                <input type="text" id="club-id">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="other-college-info" style="display: none;">
+                        <label for="college-name">College Name:</label>
+                        <input type="text" id="college-name">
+                        <label for="city">City:</label>
+                        <input type="text" id="city">
+                    </div>
+                </form>
+                <button onclick="showSection('consent')">Next</button>
+            </div>
+        </section>
+
+        <section id="consent" style="display: none;">
+            <div class="header">
+                <h2>Event Registration Form:</h2>
+            </div>
+            <div class="form">
+                <h2>Consent</h2>
+                <p>Please read the following consent form carefully:</p>
+
+                <div id="consent-text">
+                    <p>I understand and agree that by participating in this event, I release the organizers and associated
+                        parties from any liability for injuries or damages that may occur. I also consent to the use of my name
+                        and image in event-related publicity materials.</p>
+                    <p>I have read and understood the terms and conditions outlined in the full waiver document (linked below).
+                    </p>
+                    <label for="consent-checkbox">
+                        <input type="checkbox" id="consent-checkbox" required> I have read and agree to the consent terms.
+                    </label>
+
+                    <button onclick="submitRegistration()">Submit Registration</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="whatsapp" style="display: none;">
+            <div class="form">
+                <h2>Join WhatsApp Group</h2>
+                <p>Scan the QR code to join the WhatsApp group for event updates.</p>
+                <img src="WhatsAppGroupQRCode.png" alt="WhatsApp Group QR Code">
+            </div>
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "registrationform",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nothinormuch/EventTemplate-HTML-CSS-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nothinormuch/EventTemplate-HTML-CSS-JS/issues"
+  },
+  "homepage": "https://github.com/Nothinormuch/EventTemplate-HTML-CSS-JS#readme",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "moment-timezone": "^0.5.47",
+    "mongoose": "^8.10.0"
+  }
+}
